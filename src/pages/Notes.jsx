@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import NotesCard from '../components/NotesCard'
 import { getActiveNotes, getArchivedNotes } from '../utils/local-data'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-export default class Notes extends Component {
+class Notes extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -37,6 +38,7 @@ export default class Notes extends Component {
 
   render() {
     const {statusCatatan, searchParams} = this.props
+    const dataNotes = this.state.notesList.filter(item => item.title.toLocaleLowerCase().includes(searchParams)) || []
 
     return (
       <div>
@@ -44,9 +46,15 @@ export default class Notes extends Component {
         <section className="search-bar">
           <input placeholder="Cari berdasarkan judul ..." value={searchParams}  onChange={this.handleSearch}/>
         </section>
-        <section className="notes-list">
-          {this.state.notesList.filter(item => item.title.toLocaleLowerCase().includes(searchParams)).map(item =><NotesCard item={item} key={item.id}/>)}
-        </section>
+        {dataNotes.length > 0 ?
+          <section className="notes-list">
+              {dataNotes.map(item =><NotesCard item={item} key={item.id}/>)}
+          </section>
+        :
+          <section class="notes-list-empty">
+            <p class="notes-list__empty">Tidak ada catatan</p>
+          </section>
+        }
         {this.props.statusCatatan === "Aktif" ?
           <section className="homepage__action">
             <Link to={"/notes/new"}>
@@ -62,3 +70,11 @@ export default class Notes extends Component {
     )
   }
 }
+
+Notes.propTypes = {
+  setSearchParams : PropTypes.func,
+  searchParams : PropTypes.string,
+  statusCatatan: PropTypes.oneOf(["Aktif","Arsip"])
+}
+
+export default Notes

@@ -3,7 +3,7 @@ import { archiveNote, deleteNote, getNote, unarchiveNote } from '../utils/local-
 import { showFormattedDate } from '../utils'
 import NotFound from './NotFound'
 import { withNavigation } from '../components/withNavigation'
-
+import PropTypes from 'prop-types';
 class DetailNotes extends Component {
     constructor(props){
         super(props)
@@ -20,7 +20,8 @@ class DetailNotes extends Component {
 
     handleDelete = ()=>{
         deleteNote(this.props.id)
-        this.props.navigate("/")
+        if(this.state.notes.archived) return this.props.navigate("/archives")
+        else this.props.navigate("/notes")
     }
 
     handleArchive = ()=>{
@@ -70,4 +71,10 @@ class DetailNotes extends Component {
         )
     }
 }
+
+DetailNotes.propTypes = {
+    id: PropTypes.string,
+    navigate: PropTypes.func,
+}
+
 export default withNavigation(DetailNotes)

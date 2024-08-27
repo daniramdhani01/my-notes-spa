@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { showFormattedDate } from '../utils'
-
-export default class NotesCard extends Component {
+import PropTypes from 'prop-types';
+class NotesCard extends Component {
     constructor(props){
         super(props)
     }
@@ -17,3 +17,14 @@ export default class NotesCard extends Component {
     )
   }
 }
+
+NotesCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    body: PropTypes.string,
+    createdAt: PropTypes.string,
+  })
+}
+
+export default NotesCard
