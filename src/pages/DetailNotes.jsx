@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { archiveNote, deleteNote, getNote, unarchiveNote } from '../utils/local-data'
 import { showFormattedDate } from '../utils'
 import NotFound from './NotFound'
-import { withNavigation } from '../components/withNavigation'
+import withNavigation from '../components/withNavigation'
 import PropTypes from 'prop-types';
 class DetailNotes extends Component {
     constructor(props){

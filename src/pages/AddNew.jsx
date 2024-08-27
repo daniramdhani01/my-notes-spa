@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withNavigation } from '../components/withNavigation'
+import withNavigation from '../components/withNavigation'
 import { addNote } from '../utils/local-data'
 import PropTypes from 'prop-types';
 class AddNew extends Component {

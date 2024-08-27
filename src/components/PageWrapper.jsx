@@ -1,7 +1,8 @@
 import React, { cloneElement } from 'react'
 import { useLocation, useParams, useSearchParams } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-export default function PageWrapper({children}) {
+function PageWrapper({children}) {
     const {pathname} = useLocation()
     const {id} = useParams()
     const [searchParams, setSearchParams] = useSearchParams()
@@ -14,3 +15,9 @@ export default function PageWrapper({children}) {
         setSearchParams: (val) => setSearchParams({keywords: val})
     })}</>
 }
+
+PageWrapper.propTypes = {
+    children: PropTypes.element.isRequired
+}
+
+export default PageWrapper

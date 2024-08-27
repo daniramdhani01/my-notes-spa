@@ -10,7 +10,7 @@ class NotesCard extends Component {
     const {item} = this.props
     return (
         <article className="note-item">
-            <h3 className="note-item__title"><Link to={"/notes/"+item.id}>{item.title}</Link></h3>
+            <h3 className="note-item__title"><Link to={`/notes/${item.id}`}>{item.title}</Link></h3>
             <p className="note-item__createdAt">{showFormattedDate(item.createdAt)}</p>
             <p className="note-item__body">{item.body}</p>
         </article>
