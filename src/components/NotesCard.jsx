@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { showFormattedDate } from '../utils'
 import PropTypes from 'prop-types';
-class NotesCard extends Component {
-    constructor(props){
-        super(props)
-    }
-  render() {
+function NotesCard (){
     const {item} = this.props
     return (
         <article className="note-item">
@@ -16,7 +12,6 @@ class NotesCard extends Component {
         </article>
     )
   }
-}
 
 NotesCard.propTypes = {
   item: PropTypes.shape({

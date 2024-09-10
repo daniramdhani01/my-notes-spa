@@ -1,61 +1,35 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import NotesCard from '../components/NotesCard'
 import { getActiveNotes, getArchivedNotes } from '../utils/local-data'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-class Notes extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          notesList: []
-        }
-    }
-
-    handleSearch = (e)=>{
+function Notes(props){
+    const {statusCatatan, searchParams} = props
+    const [notes, setNotes] = useState([])
+    const handleSearch = (e)=>{
       const value = e.target.value
       if(value.length > 50) return
-      this.props.setSearchParams(value)
+      // props.setSearchParams(value)
     }
-
-    getData = ()=>{
-      if(this.props.statusCatatan === "Aktif"){
-        this.setState({notesList: getActiveNotes()})
-      }else{
-        this.setState({notesList: getArchivedNotes()})
-      }
-    }
-
-    componentDidMount(){
-      this.getData()
-    }
-
-    componentDidUpdate(prev){
-      if(prev.statusCatatan !== this.props.statusCatatan){
-        this.getData()
-      }
-    }
-
-  render() {
-    const {statusCatatan, searchParams} = this.props
-    const dataNotes = this.state.notesList.filter(item => item.title.toLocaleLowerCase().includes(searchParams)) || []
+    const dataNotes = []
 
     return (
       <div>
         <h2>Catatan {statusCatatan}</h2>
         <section className="search-bar">
-          <input placeholder="Cari berdasarkan judul ..." value={searchParams}  onChange={this.handleSearch}/>
+          <input placeholder="Cari berdasarkan judul ..." value={searchParams}  onChange={handleSearch}/>
         </section>
         {dataNotes.length > 0 ?
           <section className="notes-list">
               {dataNotes.map(item =><NotesCard item={item} key={item.id}/>)}
           </section>
         :
-          <section class="notes-list-empty">
-            <p class="notes-list__empty">Tidak ada catatan</p>
+          <section className="notes-list-empty">
+            <p className="notes-list__empty">Tidak ada catatan</p>
           </section>
         }
-        {this.props.statusCatatan === "Aktif" ?
+        {props.statusCatatan === "Aktif" ?
           <section className="homepage__action">
             <Link to={"/notes/new"}>
             <button className="action" type="button" title="Tambah">
@@ -69,7 +43,6 @@ class Notes extends Component {
       </div>
     )
   }
-}
 
 Notes.propTypes = {
   setSearchParams : PropTypes.func,

@@ -2,21 +2,8 @@ import React, { Component } from 'react'
 import { archiveNote, deleteNote, getNote, unarchiveNote } from '../utils/local-data'
 import { showFormattedDate } from '../utils'
 import NotFound from './NotFound'
-import withNavigation from '../components/withNavigation'
 import PropTypes from 'prop-types';
-class DetailNotes extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            notes: {
-                id: '',
-                title: '',
-                body: '',
-                createdAt: '',
-                archived: false,
-            }
-        }
-    }
+function DetailNotes (){
 
     handleDelete = ()=>{
         deleteNote(this.props.id)
@@ -34,12 +21,6 @@ class DetailNotes extends Component {
         }
     }
 
-    componentDidMount(){
-        const notes = getNote(this.props.id)
-        if(typeof notes === "object") this.setState({notes})
-            else this.setState({notes: {id: false}})
-    }
-    render() {
         const {notes} = this.state
         if(notes.id === false) return <NotFound />
         return (
@@ -70,11 +51,10 @@ class DetailNotes extends Component {
             </section>
         )
     }
-}
 
 DetailNotes.propTypes = {
     id: PropTypes.string,
     navigate: PropTypes.func,
 }
 
-export default withNavigation(DetailNotes)
+export default DetailNotes

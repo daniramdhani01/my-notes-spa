@@ -1,19 +1,7 @@
-import React, { Component } from 'react'
-import withNavigation from '../components/withNavigation'
+import React from 'react'
 import { addNote } from '../utils/local-data'
 import PropTypes from 'prop-types';
-class AddNew extends Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            notes: {
-                title: '',
-                body: '',
-            }
-        }
-    }
-
+function AddNew(){
     handleChange = (e)=>{
         const {value, name} = e.target
         const notes = this.state.notes
@@ -29,7 +17,6 @@ class AddNew extends Component {
         addNote(notes)
         this.props.navigate("/")
     }
-  render() {
     const notes = this.state.notes
     return (
       <section className="add-new-page">
@@ -48,10 +35,9 @@ class AddNew extends Component {
         </section>
     )
   }
-}
 
 AddNew.propTypes = {
     navigate: PropTypes.func,
 }
 
-export default withNavigation(AddNew)
+export default AddNew

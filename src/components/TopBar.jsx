@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default class TopBar extends Component {
-  render() {
+export default function TopBar(){
     return (
       <header className=''>
         <h1><Link to={"/"}>Aplikasi Catatan</Link>{" "}</h1>
@@ -14,4 +13,3 @@ export default class TopBar extends Component {
       </header>
     )
   }
-}
