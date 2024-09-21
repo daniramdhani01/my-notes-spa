@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { showFormattedDate } from '../utils'
 import PropTypes from 'prop-types';
-function NotesCard (){
-    const {item} = this.props
+function NotesCard ({item}){
     return (
         <article className="note-item">
             <h3 className="note-item__title"><Link to={`/notes/${item.id}`}>{item.title}</Link></h3>

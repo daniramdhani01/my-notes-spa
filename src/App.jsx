@@ -27,7 +27,7 @@ export default function App() {
             <Route path='/notes' element={<PrivateRoute><Notes/></PrivateRoute>}/>
             <Route path='/notes/new' element={<PrivateRoute><AddNew/></PrivateRoute>}/>
             <Route path='/notes/:id' element={<PrivateRoute><DetailNotes/></PrivateRoute>}/>
-            <Route path='/archives' element={<PrivateRoute><Notes /></PrivateRoute>}/>
+            <Route path='/archives' element={<PrivateRoute><Notes/></PrivateRoute>}/>
             {/* end private route */}
             <Route path='*' element={<NotFound />}/>
           </Routes>

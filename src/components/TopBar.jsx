@@ -27,11 +27,12 @@ export default function TopBar(){
   return (
     <header>
       <h1><Link to={"/"}>{home[locale].header}</Link></h1>
-      {isLogin && <nav className="navigation">
-        <ul>
-          <li><a href="/archives">{home[locale].archived}</a></li>
-        </ul>
-      </nav>
+      {isLogin &&
+        <nav className="navigation">
+          <ul>
+            <li><Link to="/archives">{home[locale].archived}</Link></li>
+          </ul>
+        </nav>
       }
       <button className="toggle-locale" type="button" onClick={toogleLocale}><Translate/></button>
       <button className="toggle-theme" type="button" onClick={toggleTheme}>{theme === "light" ? <Moon/> : <Sun/>}</button>

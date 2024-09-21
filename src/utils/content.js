@@ -5,6 +5,7 @@ export const home = {
         dontHaveAnAccount: "Belum punya akun?",
         registerHere: "Daftar di sini",
         archived: "Terarsip",
+        active: "Akif",
         activeNotes: "Catatan Aktif",
         archivedNote: "Archived Note",
         noNotes: "Tidak ada catatan",
