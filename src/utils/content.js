@@ -11,6 +11,9 @@ export const home = {
         searchPlaceholder: "Cari berdasarkan judul ...",
         secretNote: "Catatan rahasia",
         actuallyIam: "Sebenarnya saya adalah ....",
+        fillFormRegister: "Isi form untuk mendaftar akun.",
+        alreadyAccount: "Sudah punya akun?",
+        loginHere: "Login di sini",
     },
     'en': {
         header: 'Notes App',
@@ -24,5 +27,8 @@ export const home = {
         searchPlaceholder: "Search by title ...",
         secretNote: "Secret note",
         actuallyIam: "Actually I am ....",
+        fillFormRegister: "Fill the form to register account.",
+        alreadyAccount: "Already have an account?",
+        loginHere: "Login here",
     }
 };
