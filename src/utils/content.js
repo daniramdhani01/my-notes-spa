@@ -7,7 +7,7 @@ export const home = {
         archived: "Terarsip",
         active: "Akif",
         activeNotes: "Catatan Aktif",
-        archivedNote: "Archived Note",
+        archivedNote: "Catatan Arsip",
         noNotes: "Tidak ada catatan",
         searchPlaceholder: "Cari berdasarkan judul ...",
         secretNote: "Catatan rahasia",
