@@ -11,6 +11,6 @@ function useInput(defaultValue = '') {
   return [value, onValueChangeHandler];
 }
 
-useInput.propTypes =  PropTypes.oneOfType([PropTypes.string,PropTypes.number,PropTypes.bool,])
+useInput.propTypes = PropTypes.oneOfType([PropTypes.string,PropTypes.number,PropTypes.bool])
 
 export default useInput;

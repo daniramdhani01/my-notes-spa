@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { showFormattedDate } from '../utils'
 import NotFound from './NotFound'
-import PropTypes from 'prop-types';
 import { useNavigate, useParams } from 'react-router-dom';
 import { archiveNote, deleteNote, getNote, unarchiveNote } from '../utils/network-data';
 import Spinner from "../assets/icons/spinner.svg?react"
@@ -65,11 +64,6 @@ function DetailNotes (){
             :<></>}
         </section>
     )
-}
-
-DetailNotes.propTypes = {
-    id: PropTypes.string,
-    navigate: PropTypes.func,
 }
 
 export default DetailNotes
