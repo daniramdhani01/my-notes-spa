@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useMemo, useEffect } from 'react';
 import { getAccessToken, putAccessToken } from '../utils/network-data';
+import PropTypes from 'prop-types';
 
 const LoginContext = createContext();
 
@@ -32,6 +33,10 @@ export const LoginProvider = ({ children }) => {
             {children}
         </LoginContext.Provider>
     );
+};
+
+LoginProvider.propTypes = {
+    children: PropTypes.node.isRequired
 };
 
 export const useLogin = () => {
